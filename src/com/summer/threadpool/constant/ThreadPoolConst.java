@@ -15,39 +15,39 @@ package com.summer.threadpool.constant;
 
 /***
  * @ClassName: ThreadPoolConst
- * @Description:线程池参数常量
+ * @Description:Thread pool params
  * @author wen zhong
- * @Date: 2016年4月7日 上午11:41:14
+ * @Date: 2016/4/7 16:41:14 PM
  */
 public class ThreadPoolConst {
 	
 	/**
-	 * 普通工作线程池
+	 * Normal thread
 	 */
 	public static final int THREAD_TYPE_WORK = 0;
 	
 	/**
-	 * 接口请求线程池
+	 * Http thread
 	 */
 	public static final int THREAD_TYPE_SIMPLE_HTTP = 1;
 	
 	/**
-	 * 文件传输线程池
+	 * File thread
 	 */
 	public static final int THREAD_TYPE_FILE_HTTP = 2;
 	
 	/**
-	 * 其他线程池
+	 * Others thread
 	 */
 	public static final int THREAD_TYPE_OTHERS = 3;
 	
 	/**
-	 * 空闲线程存活时间,5秒
+	 * Idle alive time 5s
 	 */
 	public static final long KEEP_ALIVE_TIME = 5000;
 
 	/**
-	 * 有界队列长度
+	 * Limited queue size
 	 */
 	public final static int DEFAULT_WORK_QUEUE_SIZE = 10;
 

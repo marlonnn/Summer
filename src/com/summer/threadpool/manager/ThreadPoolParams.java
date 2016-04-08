@@ -17,58 +17,61 @@ import com.summer.threadpool.constant.ThreadPoolConst;
 
 /**
  * @ClassName: ThreadPoolParams
- * @Description:单个线程池参数配置
+ * @Description:single task params
  * @author wen zhong
- * @Date: 2016年4月7日 上午11:41:14
+ * @Date: 2016/4/7 16:41:14 PM
  */
 public enum ThreadPoolParams {
 	/**
-	 * json网络请求线程池
+	 * json thread pool
 	 */
 	jsonHttpThreadPool(ThreadPoolConst.THREAD_TYPE_SIMPLE_HTTP,10,40,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
 	
 	/**
-	 * 文件传输线程池
+	 * file http thread pool
 	 */
 	fileHttpThreadPool(ThreadPoolConst.THREAD_TYPE_FILE_HTTP,15,40,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
 	
 	/**
-	 * 工作线程池
+	 * work thread pool
 	 */
 	workThreadPool(ThreadPoolConst.THREAD_TYPE_WORK,10,40,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
 	
 	/**
-	 * 其他线程
+	 * others thread pool
 	 */
 	othersThreadPool(ThreadPoolConst.THREAD_TYPE_OTHERS,10,10,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false);
 	
 	/**
-	 * 核心线程大小:线程池中存在的线程数，包括空闲线程(就是还在存活时间内，没有干活，等着任务的线程)
+	 * The core thread size: the number of threads in the thread pool, 
+	 * including the idle thread (that is still without work in survival time, waiting for the thread)
 	 */
 	private int corePoolSize = 0;
 	
 	/**
-	 * 线程池维护线程的最大数量,当基础线程池以及队列都满了的情况继续创建新线程
+	 * The maximum number of threads maintained by the thread pool, 
+	 * where the underlying thread pool and continues to create a new thread that queues are full
 	 */
 	private int maximumPoolSize = 0;
 	
 	/**
-	 * 线程池维护线程所允许的空闲时间,空闲时间超出该值则移除
+	 * Maintained by the thread pool thread the free time allowed, 
+	 * the idle time exceeds this value are removed
 	 */
 	private long keepAliveTime = 0;
 	
 	/**
-	 * 线程池类型
+	 * thread pool type
 	 */
 	private int type = 0;
 	
 	/**
-	 * 线程池所使用的缓冲队列
+	 * pool queue size
 	 */
 	private int poolQueueSize = 0;
 	
 	/**
-	 * 是否可以超时
+	 * whether can time out
 	 */
 	private boolean allowCoreThreadTimeOut = true;
 	

@@ -4,6 +4,11 @@ import java.lang.reflect.Type;
 
 import com.google.gson.Gson;
 
+/**
+ * Json util
+ * @author wen zhong
+ *
+ */
 public class JsonUtil {
 	public static Gson gson;
 
@@ -12,7 +17,7 @@ public class JsonUtil {
 	}
 	
 	/**
-	 * json字符串转单个简单对象
+	 * json to object
 	 * @param jsonStr
 	 * @param t
 	 * @return
@@ -23,7 +28,7 @@ public class JsonUtil {
 	}
 	
 	/**
-	 * json字符串转单个复杂对象
+	 * json to object
 	 * @param jsonStr
 	 * @param type
 	 * @return
@@ -33,6 +38,11 @@ public class JsonUtil {
 		return gson.fromJson(jsonStr, type);
 	}
 
+	/**
+	 * object to json string
+	 * @param t
+	 * @return
+	 */
 	public static String toString(Object t) {
 		return gson.toJson(t);
 	}

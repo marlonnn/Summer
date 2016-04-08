@@ -19,21 +19,21 @@ import com.summer.threadpool.manager.ThreadTaskObject;
 
 /**
  * @ClassName: IThreadPoolManager
- * @Description:线程池管理接口
+ * @Description:Thread pool manager interface
  * @author wen zhong
- * @Date: 2016年4月7日 上午11:41:14
+ * @Date: 2016/4/7 16:41:14 PM
  *
  */
 public interface IThreadPoolManager {
 	/**
-	 * 往线程池中增加一个线程任务
-	 * @param task 线程任务
+	 * Add a thread to thread pool
+	 * @param task task
 	 */
 	public void addTask(ThreadTaskObject task);
 	
 	/**
 	 * 
-	 * @description:获取指定类型的线程池，如果不存在则创建
+	 * @description:Get certain type thread pool
 	 * @param @param ThreadPoolType
 	 * @return BaseThreadPool
 	 * @throws
@@ -41,14 +41,14 @@ public interface IThreadPoolManager {
 	public BaseThreadPool getThreadPool(int threadPoolType);
 	
 	/**
-	 * @Description 从线程队列中移除一个线程任务
-	 * @param task 线程任务
-	 * @return 是否移除成功
+	 * @Description Remove task
+	 * @param task 
+	 * @return 
 	 */
 	public boolean removeTask(ThreadTaskObject task);
 	
 	/**
-	 * @Description 停止所有任务
+	 * @Description Stop all task
 	 */
 	public void stopAllTask();
 }

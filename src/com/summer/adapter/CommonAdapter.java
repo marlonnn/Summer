@@ -27,9 +27,9 @@ import android.widget.TextView;
 
 /**
  * @ClassName: CommonAdapter
- * @Description:万能适配器
+ * @Description:Universal adapter
  * @author wen zhong
- * @Date: 2016年4月7日 下午16:41:14
+ * @Date: 2016/4/7 16:41:14 PM
  * @param <T>
  */
 public abstract class CommonAdapter<T> extends BaseAdapter {
@@ -99,11 +99,8 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 	}
 
 	/**
-	 * 公共ViewHolder对象
+	 * Common ViewHolde
 	 * 
-	 * @author yinbiao
-	 * 
-	 * @date 2015-6-9下午2:16:04
 	 */
 	public static class ViewHolder {
 		private final SparseArray<View> mViews;
@@ -125,7 +122,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		}
 
 		/**
-		 * 拿到一个ViewHolder对象
+		 * Get a viewHolder object
 		 * 
 		 * @param context
 		 * @param convertView
@@ -146,8 +143,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		}
 
 		/**
-		 * 通过控件的Id获取对于的控件，如果没有则加入views
-		 * 
+		 * get view by id
 		 * @param viewId
 		 * @return
 		 */
@@ -162,7 +158,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		}
 
 		/**
-		 * 为TextView设置字符串
+		 * set textView text
 		 * 
 		 * @param viewId
 		 * @param text
@@ -174,7 +170,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		}
 
 		/**
-		 * 为ImageView设置图片
+		 * set imageView image
 		 * 
 		 * @param viewId
 		 * @param drawableId
@@ -186,7 +182,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		}
 
 		/**
-		 * 为ImageView设置图片
+		 * set imageView bitmap
 		 * 
 		 * @param viewId
 		 * @param drawableId

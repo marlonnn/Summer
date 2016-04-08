@@ -17,15 +17,15 @@ import com.summer.threadpool.constant.ThreadPoolConst;
 
 /**
  * @ClassName: ThreadTaskObject
- * @Description:基本线程任务，未统一管理，业务中使用的线程都需要继承该类
+ * @Description:base thread task, custom thread should extends this
  * @author wen zhong
- * @Date: 2016年4月7日 上午11:41:14
+ * @Date: 2016/4/7 16:41:14 PM
  *
  */
 public class ThreadTaskObject implements Runnable{
 	
 	/**
-	 * 线程池类型
+	 * thread pool type
 	 */
 	protected int threadPoolType;
 	
@@ -55,7 +55,7 @@ public class ThreadTaskObject implements Runnable{
 	}
 	
 	/**
-	 * 在默认线程池中执行
+	 * execute in default thread pool
 	 */
 	public ThreadTaskObject()
 	{
@@ -63,9 +63,9 @@ public class ThreadTaskObject implements Runnable{
 	}
 	
 	/**
-	 * 初始化线程任务
-	* @param threadPoolType 线程池类型
-	 * @param threadTaskName 线程任务名称
+	 * initialize thread pool task
+	* @param threadPoolType 
+	 * @param threadTaskName
 	 */
 	private void initThreadTaskObject(int threadPoolType, String threadTaskName)
 	{
@@ -81,7 +81,7 @@ public class ThreadTaskObject implements Runnable{
 
 	@Override
 	public void run() {
-		//执行线程任务
+		//execute task
 	}
 
 	

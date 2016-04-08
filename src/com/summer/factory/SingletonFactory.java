@@ -23,9 +23,9 @@ import com.summer.logger.Logger;
 /**
  *  
  * @ClassName: ThreadPoolFactory
- * @Description:单例工厂
+ * @Description:Singleton factory
  * @author wen zhong
- * @Date: 2016年4月7日 下午13:41:14
+ * @Date: 2016/4/7 13:41:14
  *
  */
 public class SingletonFactory {
@@ -96,10 +96,10 @@ public class SingletonFactory {
 		try {
 			return clazz.newInstance();
 		} catch (InstantiationException e) {
-			Logger.t(TAG).e("创建对象实例失败!" + e.toString());
+			Logger.t(TAG).e("Failed to create instalce!" + e.toString());
 			return null;
 		} catch (IllegalAccessException e) {
-			Logger.t(TAG).e("创建对象实例失败!" + e.toString());
+			Logger.t(TAG).e("Failed to create instalce!" + e.toString());
 		}
 		return null;
 	}
@@ -112,10 +112,10 @@ public class SingletonFactory {
 
 			return (T) constructor.newInstance(paramValues);
 		} catch (InstantiationException e) {
-			Logger.t(TAG).e("创建对象实例失败!" + e.toString());
+			Logger.t(TAG).e("Failed to create instalce!" + e.toString());
 			return null;
 		} catch (Exception e) {
-			Logger.t(TAG).e("创建对象实例失败!" + e.toString());
+			Logger.t(TAG).e("Failed to create instalce!" + e.toString());
 		}
 		return null;
 	}

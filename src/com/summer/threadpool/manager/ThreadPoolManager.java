@@ -23,15 +23,15 @@ import android.annotation.SuppressLint;
 
 /**
  * @ClassName: ThreadPoolManager
- * @Description:线程池管理类
+ * @Description:thread pool manager
  * @author wen zhong
- * @Date: 2016年4月7日 上午11:41:14
+ * @Date: 2016/4/7 16:41:14 PM
  *
  */
 public class ThreadPoolManager implements IThreadPoolManager{
 	
 	/**
-	 * 不同类型的线程池，可以同时管理多个线程池
+	 * Different type of thread poll
 	 */
 	@SuppressLint("UseSparseArrays")
 	private final Map<Integer, BaseThreadPool> threadPoolMap = new HashMap<Integer, BaseThreadPool>();
@@ -44,7 +44,7 @@ public class ThreadPoolManager implements IThreadPoolManager{
 			synchronized(threadPoolMap)
 			{
 				threadPool = threadPoolMap.get(task.getThreadPoolType());
-				//指定类型的线程池不存在则创建一个新的
+
 				if (threadPool == null)
 				{
 					threadPool = new BaseThreadPool(ThreadPoolParams.getInstance(task.getThreadPoolType()));
@@ -62,7 +62,7 @@ public class ThreadPoolManager implements IThreadPoolManager{
 		synchronized(threadPoolMap)
 		{
 			threadPool = threadPoolMap.get(threadPoolType);
-			//指定类型的线程池不存在则创建一个新的
+
 			if (threadPool == null)
 			{
 				threadPool = new BaseThreadPool(ThreadPoolParams.getInstance(threadPoolType));
@@ -94,7 +94,7 @@ public class ThreadPoolManager implements IThreadPoolManager{
 				
 				if (threadPool != null)
 				{
-					threadPool.shutdownNow();//试图停止所有正在执行的线程，不再处理还在池队列中等待的任务
+					threadPool.shutdownNow();
 				}
 			}
 			

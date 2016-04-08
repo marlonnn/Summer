@@ -19,9 +19,9 @@ import com.summer.threadpool.manager.ThreadPoolManager;
 /**
  * 
  * @ClassName: ThreadPoolFactory
- * @Description:线程池工厂
+ * @Description:Thread pool factory
  * @author wen zhong
- * @Date: 2016年4月7日 上午11:41:14
+ * @Date: 2016/4/7 13:41:14
  *
  */
 public class ThreadPoolFactory {

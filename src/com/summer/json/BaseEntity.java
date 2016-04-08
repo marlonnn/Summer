@@ -19,9 +19,9 @@ import com.summer.utils.JsonUtil;
 
 /**
  * @ClassName BaseEntity
- * @Description json实体类，可以解析成对应实体对象
+ * @Description Base json entity
  * @author wen zhong
- * @Date: 2016年4月7日 上午11:41:14
+ * @Date: 2016/4/7 13:41:14
  * @param <T>
  */
 public class BaseEntity<T> {
@@ -46,7 +46,7 @@ public class BaseEntity<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		BaseEntity<T> result = new BaseEntity<T>("数据格式错误", "2");
+		BaseEntity<T> result = new BaseEntity<T>("Data format error", "2");
 		return result;
 	}
 	
