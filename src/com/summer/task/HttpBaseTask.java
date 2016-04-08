@@ -1,4 +1,4 @@
-package com.summer.pool.task;
+package com.summer.task;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,7 +31,7 @@ import com.summer.logger.Logger;
  * @author wen zhong
  * @Date: 2016/4/8 15:34:14 PM
  */
-public class HttpBaseTask extends ThreadTaskObject{
+public class HttpBaseTask extends BaseTaskObject{
 	
 	protected int taskType = -1;
 

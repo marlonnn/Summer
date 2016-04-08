@@ -1,9 +1,29 @@
-package com.summer.pool.task;
+/**
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+ */
+package com.summer.task;
 
 import com.summer.treadpool.ThreadPoolConst;
 import com.summer.treadpool.ThreadPoolParams;
 
-public abstract class BaseTask implements Runnable{
+/**
+ * @ClassName: ThreadTaskObject
+ * @Description:base thread task, custom thread should extends this
+ * @author wen zhong
+ * @Date: 2016/4/7 16:41:14 PM
+ *
+ */
+public class BaseTaskObject implements Runnable{
 	
 	/**
 	 * thread pool type
@@ -41,12 +61,12 @@ public abstract class BaseTask implements Runnable{
 		return threadPoolType;
 	}
 	
-	public BaseTask(int threadPoolType, String threadTaskName)
+	public BaseTaskObject(int threadPoolType, String threadTaskName)
 	{
 		initThreadTaskObject(threadPoolType, threadTaskName);
 	}
 	
-	public BaseTask(int threadPoolType)
+	public BaseTaskObject(int threadPoolType)
 	{
 		initThreadTaskObject(threadPoolType, this.toString());
 	}
@@ -54,7 +74,7 @@ public abstract class BaseTask implements Runnable{
 	/**
 	 * execute in default thread pool
 	 */
-	public BaseTask()
+	public BaseTaskObject()
 	{
 		initThreadTaskObject(ThreadPoolConst.THREAD_TYPE_WORK, this.toString());
 	}
@@ -75,8 +95,11 @@ public abstract class BaseTask implements Runnable{
 		
 		setTaskName(name);
 	}
+
 	@Override
 	public void run() {
 		//execute task
 	}
+
+	
 }

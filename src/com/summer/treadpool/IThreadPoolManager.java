@@ -13,7 +13,7 @@
  */
 package com.summer.treadpool;
 
-import com.summer.pool.task.ThreadTaskObject;
+import com.summer.task.BaseTaskObject;
 
 
 /**
@@ -28,7 +28,7 @@ public interface IThreadPoolManager {
 	 * Add a thread to thread pool
 	 * @param task task
 	 */
-	public void addTask(ThreadTaskObject task);
+	public void addTask(BaseTaskObject task);
 	
 	/**
 	 * 
@@ -44,7 +44,7 @@ public interface IThreadPoolManager {
 	 * @param task 
 	 * @return 
 	 */
-	public boolean removeTask(ThreadTaskObject task);
+	public boolean removeTask(BaseTaskObject task);
 	
 	/**
 	 * @Description Stop all task

@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 
 import com.summer.factory.ThreadPoolFactory;
-import com.summer.pool.task.HttpBaseTask;
+import com.summer.task.HttpBaseTask;
 import com.summer.treadpool.ThreadPoolConst;
 import com.summer.utils.JsonUtil;
 

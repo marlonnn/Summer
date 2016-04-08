@@ -1,8 +1,8 @@
 package com.summer.test;
 
-import com.summer.pool.task.ThreadTaskObject;
+import com.summer.task.BaseTaskObject;
 
-public class TestThradTask extends ThreadTaskObject{
+public class TestThradTask extends BaseTaskObject{
 	
 	public TestThradTask()
 	{

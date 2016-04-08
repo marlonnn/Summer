@@ -16,7 +16,7 @@ package com.summer.treadpool;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.summer.pool.task.ThreadTaskObject;
+import com.summer.task.BaseTaskObject;
 
 import android.annotation.SuppressLint;
 
@@ -37,7 +37,7 @@ public class ThreadPoolManager implements IThreadPoolManager{
 	private final Map<Integer, BaseThreadPool> threadPoolMap = new HashMap<Integer, BaseThreadPool>();
 
 	@Override
-	public void addTask(ThreadTaskObject task) {
+	public void addTask(BaseTaskObject task) {
 		if(task != null)
 		{
 			BaseThreadPool threadPool = null;
@@ -73,7 +73,7 @@ public class ThreadPoolManager implements IThreadPoolManager{
 	}
 
 	@Override
-	public boolean removeTask(ThreadTaskObject task) {
+	public boolean removeTask(BaseTaskObject task) {
 		BaseThreadPool threadPool = threadPoolMap.get(task.getThreadPoolType());
 
 		if (threadPool != null)
