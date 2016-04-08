@@ -1,8 +1,16 @@
 package com.summer.utils;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
 import com.google.gson.Gson;
+import com.summer.logger.Logger;
 
 /**
  * Json util
@@ -14,6 +22,21 @@ public class JsonUtil {
 
 	static {
 		gson = new Gson();
+	}
+	
+	public static List<NameValuePair> requestForNameValuePair(
+			HashMap<String, String> valueMap) {
+		try {
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+			for (Map.Entry<String, String> entry : valueMap.entrySet()) {
+				params.add(new BasicNameValuePair(entry.getKey(), entry
+						.getValue()));
+			}
+			return params;
+		} catch (Exception e) {
+			Logger.t("jsonUtil").e(e, e.getMessage());
+		}
+		return null;
 	}
 	
 	/**

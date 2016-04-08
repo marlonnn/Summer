@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.summer.threadpool.interfaces.IThreadPoolManager;
+import com.summer.threadpool.task.ThreadTaskObject;
 
 import android.annotation.SuppressLint;
 

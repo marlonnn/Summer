@@ -14,7 +14,7 @@
 package com.summer.threadpool.interfaces;
 
 import com.summer.threadpool.manager.BaseThreadPool;
-import com.summer.threadpool.manager.ThreadTaskObject;
+import com.summer.threadpool.task.ThreadTaskObject;
 
 
 /**

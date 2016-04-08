@@ -36,9 +36,9 @@ public class BaseThreadPool extends ThreadPoolExecutor{
 				  TimeUnit.MILLISECONDS,
 				  new LinkedBlockingDeque<Runnable>(threadPoolParamter.getPoolQueueSize()),
 				  new ThreadPoolExecutor.CallerRunsPolicy());//Thread pools to reject task processing strategies, try adding the task automatically repeated calls to execute () method
-		if (Build.VERSION.SDK_INT > 10) {
-			this.allowCoreThreadTimeOut(threadPoolParamter.isAllowCoreThreadTimeOut());
-		}
+//		if (Build.VERSION.SDK_INT > 10) {
+//			this.allowCoreThreadTimeOut(threadPoolParamter.isAllowCoreThreadTimeOut());
+//		}
 	}
 
 }

@@ -22,6 +22,11 @@ import com.summer.threadpool.constant.ThreadPoolConst;
  * @Date: 2016/4/7 16:41:14 PM
  */
 public enum ThreadPoolParams {
+	
+	/**
+	 * normal work thread pool
+	 */
+	workThreadPool(ThreadPoolConst.THREAD_TYPE_WORK,8,40,ThreadPoolConst.KEEP_ALIVE_TIME, 1000, false),
 	/**
 	 * json thread pool
 	 */
@@ -31,11 +36,6 @@ public enum ThreadPoolParams {
 	 * file http thread pool
 	 */
 	fileHttpThreadPool(ThreadPoolConst.THREAD_TYPE_FILE_HTTP,15,40,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
-	
-	/**
-	 * work thread pool
-	 */
-	workThreadPool(ThreadPoolConst.THREAD_TYPE_WORK,10,40,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
 	
 	/**
 	 * others thread pool
