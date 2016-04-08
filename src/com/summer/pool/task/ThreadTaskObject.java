@@ -11,10 +11,10 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
  */
-package com.summer.threadpool.task;
+package com.summer.pool.task;
 
-import com.summer.threadpool.constant.ThreadPoolConst;
-import com.summer.threadpool.manager.ThreadPoolParams;
+import com.summer.treadpool.ThreadPoolConst;
+import com.summer.treadpool.ThreadPoolParams;
 
 /**
  * @ClassName: ThreadTaskObject

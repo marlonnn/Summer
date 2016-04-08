@@ -1,6 +1,6 @@
 package com.summer.test;
 
-import com.summer.threadpool.task.ThreadTaskObject;
+import com.summer.pool.task.ThreadTaskObject;
 
 public class TestThradTask extends ThreadTaskObject{
 	

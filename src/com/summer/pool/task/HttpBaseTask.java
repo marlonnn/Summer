@@ -1,4 +1,4 @@
-package com.summer.threadpool.task;
+package com.summer.pool.task;
 
 import java.io.BufferedReader;
 import java.io.IOException;

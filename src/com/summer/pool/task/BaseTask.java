@@ -1,7 +1,7 @@
-package com.summer.threadpool.task;
+package com.summer.pool.task;
 
-import com.summer.threadpool.constant.ThreadPoolConst;
-import com.summer.threadpool.manager.ThreadPoolParams;
+import com.summer.treadpool.ThreadPoolConst;
+import com.summer.treadpool.ThreadPoolParams;
 
 public abstract class BaseTask implements Runnable{
 	

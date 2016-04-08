@@ -11,7 +11,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
  */
-package com.summer.threadpool.manager;
+package com.summer.treadpool;
 
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;

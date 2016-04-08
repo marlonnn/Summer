@@ -13,8 +13,8 @@
  */
 package com.summer.factory;
 
-import com.summer.threadpool.interfaces.IThreadPoolManager;
-import com.summer.threadpool.manager.ThreadPoolManager;
+import com.summer.treadpool.IThreadPoolManager;
+import com.summer.treadpool.ThreadPoolManager;
 
 /**
  * 
