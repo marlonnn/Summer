@@ -21,9 +21,11 @@ import org.apache.http.protocol.HTTP;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
+
 import com.summer.config.Config;
 import com.summer.handler.InfoHandler;
-import com.summer.logger.Logger;
+import com.summer.logger.XLog;
 
 /**
  * @ClassName: HttpBaseTask
@@ -253,7 +255,9 @@ public class HttpBaseTask extends BaseTaskObject{
 			this.errorCode = -1;
 			e.printStackTrace();
 		}
-		Logger.t("httpBasetask").i("rep:" + returnBuffer.toString());
+		Log.i("httpBasetask", "rep:" + returnBuffer.toString());
+		XLog.i("rep:" + returnBuffer.toString());
+//		Logger.t("httpBasetask").i("rep:" + returnBuffer.toString());
 		return returnBuffer.toString();
 	}
 	
@@ -281,7 +285,7 @@ public class HttpBaseTask extends BaseTaskObject{
 	private InputStream getInputStreamWithPostType4WebService() {
 		InputStream in = null;
 		try {
-			Logger.t("httpBasetask").i("httptask", "url:" + url + "\nreq:" + content);
+			XLog.i("POST with content: " + "url:" + url + "\nreq:" + content);
 			DefaultHttpClient client = new DefaultHttpClient();
 			client.getParams().setParameter(
 					CoreConnectionPNames.CONNECTION_TIMEOUT, 50000);
@@ -297,11 +301,11 @@ public class HttpBaseTask extends BaseTaskObject{
 			}
 			HttpResponse response = client.execute(method);
 			in = response.getEntity().getContent();
-			Logger.t("httpBasetask").i("httptask", "httpResponse.getStatusLine().getStatusCode() = "
+			XLog.i("httpResponse.getStatusLine().getStatusCode() = "
 					+ response.getStatusLine().getStatusCode());
 		} catch (Exception e) {
 			message = "Network error";
-			Logger.t("httpBasetask").e(e, url, e.toString());
+			XLog.e("error: " + e.toString());
 			e.printStackTrace();
 		}
 		return in;
@@ -309,7 +313,7 @@ public class HttpBaseTask extends BaseTaskObject{
 	
 	private InputStream getInputStreamWithPostType() {
 		InputStream in = null;
-		Logger.t("httpBasetask").i("httptask", "url:" + url + "\nreq:" + params);
+		XLog.i("POST with params: " + "url:" + url + "\nreq:" + params);
 		try {
 			DefaultHttpClient client = new DefaultHttpClient();
 			client.getParams().setParameter(
@@ -324,13 +328,11 @@ public class HttpBaseTask extends BaseTaskObject{
 			HttpResponse response = client.execute(method);
 			cookieStore = client.getCookieStore();
 			in = response.getEntity().getContent();
-			Logger.t("httpBasetask").i("shuzhi", "cookieStore:" + cookieStore);
-			Logger.t("httpBasetask").i("httptask", "httpResponse.getStatusLine().getStatusCode() = "
+			XLog.i("httpResponse.getStatusLine().getStatusCode() = "
 					+ response.getStatusLine().getStatusCode());
-
 		} catch (Exception e) {
 			message = "Network error";
-			Logger.t("httpBasetask").e(e, url, e.toString());
+			XLog.e("error: " + e.toString());
 			e.printStackTrace();
 		}
 		return in;
@@ -338,7 +340,7 @@ public class HttpBaseTask extends BaseTaskObject{
 	
 	private InputStream getInputStreamWithGetType() {
 		try {
-			Logger.t("httpBasetask").i("httptask", "url:" + url);
+			XLog.i("url:" + url);
 			HttpGet getRequest = new HttpGet(url);
 			DefaultHttpClient client = new DefaultHttpClient();
 			client.getParams().setParameter(
@@ -349,7 +351,7 @@ public class HttpBaseTask extends BaseTaskObject{
 			return response.getEntity().getContent();
 		} catch (Exception e) {
 			message = "Network error";
-			Logger.t("httpBasetask").e(e, url, e.toString());
+			XLog.e("error: " + e.toString());
 			e.printStackTrace();
 		}
 		return null;

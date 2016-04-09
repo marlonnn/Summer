@@ -2,10 +2,7 @@ package com.summer.utils;
 
 import java.security.MessageDigest;
 
-import com.summer.logger.Logger;
-
-import android.util.Log;
-
+import com.summer.logger.XLog;
 
 public class MD5 {
 	public static MD5 getInstance(){
@@ -36,7 +33,7 @@ public class MD5 {
 	     	}
 	     	return sb.toString();
 	    } catch (Exception e) {
-	    	Logger.t("MD5").e(e,e.toString());
+	    	XLog.e(e.toString(), e);
 	     	return null;
 	    }
 	}
