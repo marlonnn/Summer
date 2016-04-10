@@ -19,6 +19,7 @@ public class InfoHandler extends Handler{
 	}
 	
 	public interface InfoReceiver {
+//		void onInfoReceived(int errcode, T t,HashMap<String, Object> items);
 		
 		void onInfoReceived(int errcode, HashMap<String, Object> items);
 

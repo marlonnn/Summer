@@ -1,5 +1,12 @@
 <resources>
 
     <string name="app_name">Summer</string>
-
+    <string name="dialog_loading">加载中...</string>
+    
+    <string name="buffering">缓冲中</string>
+    
+    <!-- Volley Error -->
+    <string name="generic_server_down">Server down and time out error</string>
+    <string name="no_internet">No Internet error</string>
+    <string name="generic_error">Generic error</string>
 </resources>

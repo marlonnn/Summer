@@ -12,15 +12,15 @@ import java.util.Map;
  */
 public class SimpleStringRequest extends StringRequest {
 
-    private Map<String, String> map;
+    private Map<String, String> params;
 
     public SimpleStringRequest(int method, String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
         super(method, url, listener, errorListener);
     }
 
-    public SimpleStringRequest(int method, String url, Response.Listener<String> listener, Response.ErrorListener errorListener, Map<String, String> map) {
+    public SimpleStringRequest(int method, String url, Response.Listener<String> listener, Response.ErrorListener errorListener, Map<String, String> params) {
         super(method, url, listener, errorListener);
-        this.map = map;
+        this.params = params;
     }
 
     public SimpleStringRequest(String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
@@ -29,7 +29,11 @@ public class SimpleStringRequest extends StringRequest {
 
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
-        XLog.i(map.toString());
-        return map;
+        XLog.i(params.toString());
+        return params;
     }
+
+	public void setParams(Map<String, String> params) {
+		this.params = params;
+	}
 }

@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.summer.handler.InfoHandler.InfoReceiver;
+import com.summer.json.BaseEntity;
 import com.summer.logger.XLog;
 
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.widget.Toast;
  *
  */
 public abstract class BaseActivity extends FragmentActivity implements InfoReceiver {
+	
+	private BaseEntity baseEntity;
 	
 	@Override
 	protected void onCreate(@Nullable Bundle arg0) {
@@ -108,5 +111,12 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         }
     }
-	
+
+	public BaseEntity getBaseEntity() {
+		return baseEntity;
+	}
+
+	public void setBaseEntity(BaseEntity baseEntity) {
+		this.baseEntity = baseEntity;
+	}
 }

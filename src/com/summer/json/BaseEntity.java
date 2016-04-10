@@ -24,38 +24,26 @@ import com.summer.utils.JsonUtil;
  * @Date: 2016/4/7 13:41:14
  * @param <T>
  */
-public class BaseEntity<T> {
-	private String message;
+public class BaseEntity {
+	private String msg;
 
 	private String status;
-
-	private T data;
 
 	public BaseEntity() {
 	}
 	
-	public BaseEntity(String message, String status) {
+	public BaseEntity(String msg, String status) {
 		super();
-		this.message = message;
+		this.msg = msg;
 		this.status = status;
 	}
 	
-	public static <T> BaseEntity<T> parse(String json, Type type) {
-		try {
-			return JsonUtil.getObject(json, type);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		BaseEntity<T> result = new BaseEntity<T>("Data format error", "2");
-		return result;
-	}
-	
 	public String getMessage() {
-		return message;
+		return msg;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessage(String msg) {
+		this.msg = msg;
 	}
 
 	public String getStatus() {
@@ -66,11 +54,4 @@ public class BaseEntity<T> {
 		this.status = status;
 	}
 
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
-	}
 }
