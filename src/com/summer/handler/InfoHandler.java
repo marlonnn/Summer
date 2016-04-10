@@ -1,6 +1,9 @@
 package com.summer.handler;
 
 import java.util.HashMap;
+
+import com.summer.logger.XLog;
+
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;

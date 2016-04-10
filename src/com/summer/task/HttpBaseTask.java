@@ -357,6 +357,15 @@ public class HttpBaseTask extends BaseTaskObject{
 		return null;
 	}
 
+	
+	public int getTaskType() {
+		return taskType;
+	}
+
+	public void setTaskType(int taskType) {
+		this.taskType = taskType;
+	}
+
 	public InfoHandler getInfoHandler() {
 		return infoHandler;
 	}

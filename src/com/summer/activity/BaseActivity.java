@@ -1,18 +1,24 @@
 package com.summer.activity;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.summer.handler.InfoHandler.InfoReceiver;
-import com.summer.json.BaseEntity;
-import com.summer.logger.XLog;
-
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.summer.config.Config;
+import com.summer.dialog.CustomProgressDialog;
+import com.summer.handler.InfoHandler.InfoReceiver;
+import com.summer.logger.XLog;
 
 /**
  * Base activity
@@ -21,16 +27,27 @@ import android.widget.Toast;
  */
 public abstract class BaseActivity extends FragmentActivity implements InfoReceiver {
 	
-	private BaseEntity baseEntity;
+	
+	public static ArrayList<Activity> activityList = new ArrayList<Activity>();
+	
+	private Activity activity;
+	
+	private CustomProgressDialog progressDialog;;
 	
 	@Override
 	protected void onCreate(@Nullable Bundle arg0) {
 		super.onCreate(arg0);
-	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
+		activityList.add(this);
+		activity = this;
+		XLog.i(Config.hasloadConfig);
+		if (!Config.hasloadConfig) {
+			File cache = this.getCacheDir();
+			Config.setCachePath(cache.getPath());
+			XLog.i(cache.getPath());
+			Config.setFileDir(getFilesDir().getPath());
+			Config.maincontext = this;
+			Config.LoadConfig();
+		}
 	}
 
 	@Override
@@ -44,6 +61,14 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
 	}
 
 	@Override
+	protected void onRestart() {
+		// TODO Auto-generated method stub
+		super.onRestart();
+		this.getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+	}
+	
+	@Override
 	protected void onStart() {
 		super.onStart();
 	}
@@ -52,9 +77,69 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
 	protected void onStop() {
 		super.onStop();
 	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		try {
+			activityList.remove(this);
+			this.getWindow().setSoftInputMode(
+					WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Show custom dialog progress
+	 * @param title
+	 */
+	protected void ShowProgressDialog(String title) {
+		try {
+			if (progressDialog != null) 
+			{
+				return;
+			}
+			progressDialog = CustomProgressDialog.CreateDialog(this);
+			progressDialog.setMessage(title);
+			progressDialog.setCancelable(true);
+			progressDialog.show();
+
+			progressDialog.setOnCancelListener(
+					new DialogInterface.OnCancelListener() 
+					{
+						@Override
+						public void onCancel(DialogInterface arg0) 
+						{
+							if (progressDialog != null) {
+								progressDialog.dismiss();
+								progressDialog = null;
+							}
+						}
+					});
+		} 
+		catch (Exception e) 
+		{
+			XLog.e("showProgressDialog exception: " + e.toString(), e);
+			e.printStackTrace();
+		}
+	}
+	
+	protected void RemoveProgressDialog()
+	{
+		try {
+			if (progressDialog != null) {
+				progressDialog.dismiss();
+				progressDialog = null;
+			}
+		} catch (Exception e) {
+			 XLog.e("showProgressDialog exception: " + e.toString(), e);
+		}
+	}
 
 	@Override
 	public void onInfoReceived(int errorCode, HashMap<String, Object> items) {
+		RemoveProgressDialog();
         if (errorCode == 0)
         {
             XLog.i(errorCode);
@@ -111,12 +196,4 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         }
     }
-
-	public BaseEntity getBaseEntity() {
-		return baseEntity;
-	}
-
-	public void setBaseEntity(BaseEntity baseEntity) {
-		this.baseEntity = baseEntity;
-	}
 }

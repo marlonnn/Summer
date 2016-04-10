@@ -25,21 +25,21 @@ public enum ThreadPoolParams {
 	/**
 	 * normal work thread pool
 	 */
-	workThreadPool(ThreadPoolConst.THREAD_TYPE_WORK,8,40,ThreadPoolConst.KEEP_ALIVE_TIME, 1000, false),
+	workThreadPool(ThreadPoolConst.THREAD_TYPE_WORK,3,6,ThreadPoolConst.KEEP_ALIVE_TIME, 1000, false),
 	/**
 	 * json thread pool
 	 */
-	jsonHttpThreadPool(ThreadPoolConst.THREAD_TYPE_SIMPLE_HTTP,10,40,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
+	jsonHttpThreadPool(ThreadPoolConst.THREAD_TYPE_SIMPLE_HTTP,3,6,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
 	
 	/**
 	 * file http thread pool
 	 */
-	fileHttpThreadPool(ThreadPoolConst.THREAD_TYPE_FILE_HTTP,15,40,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
+	fileHttpThreadPool(ThreadPoolConst.THREAD_TYPE_FILE_HTTP,3,6,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
 	
 	/**
 	 * others thread pool
 	 */
-	othersThreadPool(ThreadPoolConst.THREAD_TYPE_OTHERS,10,10,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false);
+	othersThreadPool(ThreadPoolConst.THREAD_TYPE_OTHERS,3,6,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false);
 	
 	/**
 	 * The core thread size: the number of threads in the thread pool, 

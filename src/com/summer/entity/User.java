@@ -5,7 +5,7 @@ package com.summer.entity;
  * @author zhongwen
  *
  */
-public class UserInfo extends BaseInfo{
+public class User{
 
 	private String clientID;
 	

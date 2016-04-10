@@ -3,7 +3,7 @@ package com.summer.utils;
 import com.summer.config.Config;
 import com.summer.logger.XLog;
 
-public class UrilUtil {
+public class UrlUtil {
 
     public static String GetUrl (int taskType)
     {
