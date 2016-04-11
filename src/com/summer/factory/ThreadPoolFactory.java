@@ -29,5 +29,4 @@ public class ThreadPoolFactory {
 	{
 		return SingletonFactory.getInstance(ThreadPoolManager.class);
 	}
-
 }

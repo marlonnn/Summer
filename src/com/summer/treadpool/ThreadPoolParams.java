@@ -29,7 +29,7 @@ public enum ThreadPoolParams {
 	/**
 	 * json thread pool
 	 */
-	jsonHttpThreadPool(ThreadPoolConst.THREAD_TYPE_SIMPLE_HTTP,3,6,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
+	jsonHttpThreadPool(ThreadPoolConst.THREAD_TYPE_SIMPLE_HTTP,5,8,ThreadPoolConst.KEEP_ALIVE_TIME, 10000, false),
 	
 	/**
 	 * file http thread pool

@@ -13,6 +13,7 @@ import com.summer.entity.User;
 import com.summer.logger.XLog;
 
 import android.content.Context;
+import android.graphics.Typeface;
 
 public class Config {
 
@@ -21,6 +22,9 @@ public class Config {
     public static final String ADDRESS = "http://app.haimianyu.cn/index.php";
     
     public static User User;
+    
+	// Loading Font Face
+	public static Typeface tf = null;
 
     /**
      * µÇÂ¼

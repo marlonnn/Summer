@@ -2,7 +2,14 @@ package com.summer.utils;
 
 import java.text.DecimalFormat;
 
+import android.content.Context;
+
 public class StringUtil {
+	
+	public static String getXmlResource(Context context, int id)
+	{
+		return context.getString(id);
+	}
 	/**
 	 * ´¦Àí¿Õ×Ö·û´®
 	 * 

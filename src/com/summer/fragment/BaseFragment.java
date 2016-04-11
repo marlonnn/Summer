@@ -8,6 +8,7 @@ import com.summer.logger.XLog;
 
 import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
+import android.widget.TextView;
 
 public class BaseFragment extends Fragment implements InfoReceiver{
 	
@@ -50,6 +51,11 @@ public class BaseFragment extends Fragment implements InfoReceiver{
 		} catch (Exception e) {
 			XLog.e(e.getMessage(), e);
 		}
+	}
+	
+	protected void setText(int Id, String text) {
+		TextView textView = (TextView) getView().findViewById(Id);
+		textView.setText(text);
 	}
 
 	@Override
