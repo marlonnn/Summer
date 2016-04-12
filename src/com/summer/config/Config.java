@@ -21,6 +21,25 @@ public class Config {
 	
     public static final String ADDRESS = "http://app.haimianyu.cn/index.php";
     
+	//微信支付
+	public static final String URLSTRING = "http://app.haimianyu.cn/wxpay/wxpay.php";
+	
+	//订单完成查询
+	public static final String URLQUERY = "http://app.haimianyu.cn/index.php?_mod=wxpay&_act=query";
+	
+	//应用ID
+	public static final String APP_ID = "wx2044b77eca1acb02";
+	
+	//商户号
+	public static final String MCH_ID = "1321312601";
+	
+	//商品或支付单简要描述
+    public static final String BODY = "海绵娱娱币";
+    
+    //扩展字段 时间戳，请见接口规则-参数规定
+    public static final String PACKAGE = "Sign=WXPay";
+    
+    
     public static User User;
     
 	// Loading Font Face
@@ -274,6 +293,15 @@ public class Config {
      * 微信支付成功
      */
     public static final int wx_pay = 61;
+    
+    //微信支付
+    public static final int PAY_WX =0x11;
+    
+    //支付宝支付
+    public static final int PAY_ALI =0x12;
+    
+    //预支付异常
+    public static final int WX_EXCEPTION_ERROR = 0x06;
     
     public static boolean hasloadConfig = false;
     

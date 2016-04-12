@@ -353,6 +353,18 @@ public class UrlUtil {
             case Config.delete_picture:
                 url = Config.ADDRESS + "?_mod=user&_act=delete_picture";
                 break;
+            /**
+             * 微信预支付
+             */
+            case Config.wx_pre_pay:
+            	url = "http://app.haimianyu.cn/wxpay/wxpay.php";
+            	break;
+			/**
+			 * 微信支付成功，查询订单
+			 */
+			case Config.wx_pay:
+				url = "http://app.haimianyu.cn/index.php?_mod=wxpay&_act=query";
+				break;
         }
         XLog.i(url);
         return url;

@@ -2,6 +2,9 @@ package com.summer.fragment;
 
 import java.util.HashMap;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.summer.dialog.CustomProgressDialog;
 import com.summer.handler.InfoHandler.InfoReceiver;
 import com.summer.logger.XLog;
@@ -9,6 +12,7 @@ import com.summer.logger.XLog;
 import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BaseFragment extends Fragment implements InfoReceiver{
 	
@@ -59,13 +63,76 @@ public class BaseFragment extends Fragment implements InfoReceiver{
 	}
 
 	@Override
-	public void onInfoReceived(int errcode, HashMap<String, Object> items) {
-		
+	public void onInfoReceived(int errorCode, HashMap<String, Object> items) {
+		RemoveProgressDialog();
+        if (errorCode == 0)
+        {
+            XLog.i(errorCode);
+            String jsonString = (String) items.get("content");
+            if (jsonString != null)
+            {
+                JSONObject object;
+                try {
+                    object = new JSONObject(jsonString);
+                    String msg = object.optString("msg");
+                    int code = object.optInt("status", -1);
+                    int taskType = (Integer) items.get("taskType");
+                    if (code == 0)
+                    {
+                        RequestSuccessful(jsonString, taskType);
+                    }
+                    else
+                    {
+                        RequestFailed(code, msg, taskType);
+                    }
+                } catch (JSONException e) {
+                    //parse error
+                    XLog.e(e);
+                    e.printStackTrace();
+                    RequestFailed(-1, "Json Parse Error", -1);
+                }
+            }
+        }
+	}
+	
+	protected void RemoveProgressDialog()
+	{
+		try {
+			if (progressDialog != null) {
+				progressDialog.dismiss();
+				progressDialog = null;
+			}
+		} catch (Exception e) {
+			 XLog.e("showProgressDialog exception: " + e.toString(), e);
+		}
 	}
 
 	@Override
 	public void onNotifyText(String notify) {
 		
 	}
+	
+	/**
+	 * Get json string and request success callback
+	 * @param jsonString
+	 * @param taskType
+	 */
+	public void RequestSuccessful(String jsonString, int taskType) {
+	}
+	
+	/**
+	 * Get error and show failed toast
+	 * @param errcode
+	 * @param message
+	 * @param taskType
+	 */
+    public void RequestFailed(int errcode, String message, int taskType)
+    {
+        if (errcode == 0) {
+            Toast.makeText(this.getActivity(), message, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this.getActivity(), message, Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }
