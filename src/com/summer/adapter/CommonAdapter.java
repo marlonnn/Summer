@@ -70,7 +70,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		viewHolder = new ViewHolder(mContext, parent, mItemLayoutId, position);
+		viewHolder = new ViewHolder(mContext, parent, mItemLayoutId, position, mDatas);
 		viewHolder.setPosition(position);
 		convert(viewHolder, getItem(position));
 		return viewHolder.getConvertView();
@@ -103,7 +103,6 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		private final SparseArray<View> mViews;
 		private View mConvertView;
 		private int position;
-		private List<T> mDatas;
 
 		public int getPosition() {
 			return position;
@@ -112,13 +111,8 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		public void setPosition(int position) {
 			this.position = position;
 		}
-		
-		public void setData(List<T> mDatas)
-		{
-			this.mDatas = mDatas;
-		}
 
-		private ViewHolder(Context context, ViewGroup parent, int layoutId, int position) {
+		private ViewHolder(Context context, ViewGroup parent, int layoutId, int position, List<T> mDatas) {
 			this.mViews = new SparseArray<View>();
 			mConvertView = LayoutInflater.from(context).inflate(layoutId, parent, false);
 			mConvertView.setTag(mDatas.get(position));
@@ -135,9 +129,9 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		 * @return
 		 */
 		@SuppressWarnings("unchecked")
-		public  ViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId, int position) {
+		public  ViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId, int position, List<T> mDatas) {
 			if (convertView == null) {
-				return new ViewHolder(context, parent, layoutId, position);
+				return new ViewHolder(context, parent, layoutId, position, mDatas);
 			}
 			return (ViewHolder) convertView.getTag();
 		}
