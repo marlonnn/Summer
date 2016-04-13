@@ -36,6 +36,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 	protected Context mContext;
 	protected List<T> mDatas;
 	protected final int mItemLayoutId;
+	protected ViewHolder viewHolder;
 
 	public CommonAdapter(Context context, int itemLayoutId, List<T> mDatas) {
 		this.mContext = context;
@@ -69,14 +70,10 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ViewHolder viewHolder = getViewHolder(position, convertView, parent);
+		viewHolder = new ViewHolder(mContext, parent, mItemLayoutId, position);
 		viewHolder.setPosition(position);
 		convert(viewHolder, getItem(position));
 		return viewHolder.getConvertView();
-	}
-
-	private ViewHolder getViewHolder(int position, View convertView, ViewGroup parent) {
-		return ViewHolder.get(mContext, convertView, parent, mItemLayoutId, position);
 	}
 
 	public abstract void convert(ViewHolder helper, final T item);
@@ -102,10 +99,11 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 	 * Common ViewHolde
 	 * 
 	 */
-	public static class ViewHolder {
+	public class ViewHolder {
 		private final SparseArray<View> mViews;
 		private View mConvertView;
 		private int position;
+		private List<T> mDatas;
 
 		public int getPosition() {
 			return position;
@@ -114,11 +112,16 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		public void setPosition(int position) {
 			this.position = position;
 		}
+		
+		public void setData(List<T> mDatas)
+		{
+			this.mDatas = mDatas;
+		}
 
 		private ViewHolder(Context context, ViewGroup parent, int layoutId, int position) {
 			this.mViews = new SparseArray<View>();
 			mConvertView = LayoutInflater.from(context).inflate(layoutId, parent, false);
-			mConvertView.setTag(this);
+			mConvertView.setTag(mDatas.get(position));
 		}
 
 		/**
@@ -131,7 +134,8 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		 * @param position
 		 * @return
 		 */
-		public static ViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId, int position) {
+		@SuppressWarnings("unchecked")
+		public  ViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId, int position) {
 			if (convertView == null) {
 				return new ViewHolder(context, parent, layoutId, position);
 			}
@@ -147,7 +151,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		 * @param viewId
 		 * @return
 		 */
-		@SuppressWarnings("unchecked")
+		@SuppressWarnings({ "unchecked", "hiding" })
 		public <T extends View> T getView(int viewId) {
 			View view = mViews.get(viewId);
 			if (view == null) {
