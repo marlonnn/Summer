@@ -209,6 +209,8 @@ public class HttpBaseTask extends BaseTaskObject{
 		}
 		result.put("taskType", taskType);
 		result.put("content", jsonString);
+		XLog.i("taskType: " + taskType);
+		XLog.i("json string: " + jsonString);
 	}
 	
 	/**

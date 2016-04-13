@@ -5,16 +5,16 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.DialogInterface;
+import android.support.v4.app.DialogFragment;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.summer.dialog.CustomProgressDialog;
 import com.summer.handler.InfoHandler.InfoReceiver;
 import com.summer.logger.XLog;
 
-import android.content.DialogInterface;
-import android.support.v4.app.Fragment;
-import android.widget.TextView;
-import android.widget.Toast;
-
-public abstract class BaseFragment extends Fragment implements InfoReceiver{
+public abstract class BaseDialogFragment extends DialogFragment implements InfoReceiver{
 	
 	protected CustomProgressDialog progressDialog;
 	
@@ -134,5 +134,4 @@ public abstract class BaseFragment extends Fragment implements InfoReceiver{
             Toast.makeText(this.getActivity(), message, Toast.LENGTH_SHORT).show();
         }
     }
-
 }

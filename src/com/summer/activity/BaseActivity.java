@@ -12,9 +12,14 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.summer.R;
 import com.summer.config.Config;
 import com.summer.dialog.CustomProgressDialog;
 import com.summer.handler.InfoHandler.InfoReceiver;
@@ -32,7 +37,7 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
 	
 	private Activity activity;
 	
-	private CustomProgressDialog progressDialog;;
+	private CustomProgressDialog progressDialog;
 	
 	@Override
 	protected void onCreate(@Nullable Bundle arg0) {
@@ -58,11 +63,14 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
 	@Override
 	protected void onResume() {
 		super.onResume();
+		if (findViewById(R.id.nav_back_view) != null)
+		{
+			backButton();
+		}
 	}
 
 	@Override
 	protected void onRestart() {
-		// TODO Auto-generated method stub
 		super.onRestart();
 		this.getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -88,6 +96,28 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Button backButton() {
+		Button button = (Button) findViewById(R.id.nav_back_view);
+		button.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				try {
+					activity.finish();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		return button;
+	}
+	
+	protected void setText(int id, String text)
+	{
+		TextView t = (TextView) findViewById(id);
+		t.setText(text);
 	}
 	
 	/**
