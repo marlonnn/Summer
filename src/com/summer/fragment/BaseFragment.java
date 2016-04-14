@@ -134,5 +134,8 @@ public abstract class BaseFragment extends Fragment implements InfoReceiver{
             Toast.makeText(this.getActivity(), message, Toast.LENGTH_SHORT).show();
         }
     }
+    
+	public void obtainImage(String imagePath) {
+	}
 
 }

@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.http.client.CookieStore;
-
 import com.summer.entity.User;
 import com.summer.logger.XLog;
 
@@ -293,6 +292,16 @@ public class Config {
      * 微信支付成功
      */
     public static final int wx_pay = 61;
+    
+    /**
+     * 视频直播查询
+     */
+    public static final int query_video = 62;
+    
+    /**
+     * 创建直播室
+     */
+    public static final int create_video = 63;
     
     //微信支付
     public static final int PAY_WX =0x11;

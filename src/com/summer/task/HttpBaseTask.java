@@ -257,9 +257,6 @@ public class HttpBaseTask extends BaseTaskObject{
 			this.errorCode = -1;
 			e.printStackTrace();
 		}
-		Log.i("httpBasetask", "rep:" + returnBuffer.toString());
-		XLog.i("rep:" + returnBuffer.toString());
-//		Logger.t("httpBasetask").i("rep:" + returnBuffer.toString());
 		return returnBuffer.toString();
 	}
 	

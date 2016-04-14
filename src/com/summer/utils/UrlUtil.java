@@ -365,6 +365,18 @@ public class UrlUtil {
 			case Config.wx_pay:
 				url = "http://app.haimianyu.cn/index.php?_mod=wxpay&_act=query";
 				break;
+		    /**
+		     * 视频直播查询
+		     */				
+			case Config.query_video:
+				url = Config.ADDRESS + "?_mod=video&_act=queryVideo";
+				break;
+			/**
+			 * 视频直播查询
+			 */
+			case Config.create_video:
+				url = Config.ADDRESS + "?_mod=video&_act=createVideo";
+				break;
         }
         XLog.i(url);
         return url;
