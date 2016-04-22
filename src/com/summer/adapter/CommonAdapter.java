@@ -166,6 +166,17 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 			TextView view = getView(viewId);
 			view.setText(text);
 		}
+		
+		/**
+		 * set textView color
+		 * @param viewId
+		 * @param color
+		 */
+		public void setTextColor(int viewId, int color)
+		{
+			TextView view = getView(viewId);
+			view.setTextColor(color);
+		}
 
 		/**
 		 * set imageView image
