@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -167,6 +168,17 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 			view.setText(text);
 		}
 
+		/**
+		 * set textView color
+		 * @param viewId
+		 * @param color
+		 */
+		public void setTextColor(int viewId, int color)
+		{
+			TextView view = getView(viewId);
+			view.setTextColor(color);
+		}
+		
 		/**
 		 * set imageView image
 		 * 
