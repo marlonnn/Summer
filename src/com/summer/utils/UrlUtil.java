@@ -377,6 +377,12 @@ public class UrlUtil {
 			case Config.create_video:
 				url = Config.ADDRESS + "?_mod=video&_act=createVideo";
 				break;
+		    /**
+		     * 更新直播频道的直播状态
+		     */
+			case Config.update_status:
+				url = Config.ADDRESS + "?_mod=video&_act= updateStatus";
+				break;
         }
         XLog.i(url);
         return url;

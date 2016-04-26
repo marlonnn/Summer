@@ -303,6 +303,11 @@ public class Config {
      */
     public static final int create_video = 63;
     
+    /**
+     * 更新直播频道的直播状态
+     */
+    public static final int update_status = 64;
+    
     //微信支付
     public static final int PAY_WX =0x11;
     
