@@ -381,7 +381,31 @@ public class UrlUtil {
 		     * 更新直播频道的直播状态
 		     */
 			case Config.update_status:
-				url = Config.ADDRESS + "?_mod=video&_act= updateStatus";
+				url = Config.ADDRESS + "?_mod=video&_act=updateStatus";
+				break;
+		    /**
+		     * 更新聊天室人数
+		     */				
+			case Config.update_room:
+				url = Config.ADDRESS + "?_mod=video&_act=updateRoom";
+				break;
+		    /**
+		     * 聊天室送礼物
+		     */
+			case Config.send_gift:
+				url = Config.ADDRESS + "?_mod=video&_act=chatRoomGift";
+				break;
+		    /**
+		     * 查询娱票
+		     */
+			case Config.query_piao:
+				url = Config.ADDRESS + "?_mod=video&_act=queryPiao";
+				break;
+		    /**
+		     * 查询在线直播间列表
+		     */
+			case Config.video_list:
+				url = Config.ADDRESS + "?_mod=video&_act=getVideoList";
 				break;
         }
         XLog.i(url);

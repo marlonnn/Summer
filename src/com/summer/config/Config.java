@@ -308,6 +308,26 @@ public class Config {
      */
     public static final int update_status = 64;
     
+    /**
+     * 更新聊天室人数
+     */
+    public static final int update_room = 65;
+    
+    /**
+     * 聊天室送礼物
+     */
+    public static final int send_gift = 66;
+    
+    /**
+     * 查询娱票
+     */
+    public static final int query_piao = 67;
+    
+    /**
+     * 查询在线直播间列表
+     */
+    public static final int video_list = 68;
+    
     //微信支付
     public static final int PAY_WX =0x11;
     
