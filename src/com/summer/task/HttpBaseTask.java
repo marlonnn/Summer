@@ -147,6 +147,23 @@ public class HttpBaseTask extends BaseTaskObject{
 	}
 	
 	/**
+	 * 
+	 * @param threadPoolType
+	 * @param threadTaskName
+	 * @param content
+	 * @param url
+	 * @param isUsePostType
+	 */
+	public HttpBaseTask(int threadPoolType, String threadTaskName, List<NameValuePair> params, String url, boolean isUsePostType)
+	{
+		super(threadPoolType, threadTaskName);
+		this.params = params;
+		this.url = url;
+		this.isUsePostType = isUsePostType;
+		result = new HashMap<String, Object>();
+	}
+	
+	/**
 	 * send message to target handler
 	 */
 	private void sendInfoMessage() {
@@ -276,7 +293,15 @@ public class HttpBaseTask extends BaseTaskObject{
 		}
 		else
 		{
-			in = getInputStreamWithGetType();
+			if(params != null || content != null)
+			{
+				in = getInputStreamWithPostType();
+			}
+			else
+			{
+				in = getInputStreamWithGetType();
+			}
+
 		}
 		return in;
 	}
