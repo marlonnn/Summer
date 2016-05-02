@@ -21,7 +21,6 @@ import org.apache.http.protocol.HTTP;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 
 import com.summer.config.Config;
 import com.summer.handler.InfoHandler;

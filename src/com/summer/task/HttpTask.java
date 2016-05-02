@@ -27,7 +27,7 @@ import com.summer.config.Config;
 import com.summer.handler.InfoHandler;
 import com.summer.logger.XLog;
 
-public class HttpTask<T> extends BaseTaskObject{
+public class HttpTask extends BaseTaskObject{
 	
 	protected int taskType = -1;
 
@@ -40,6 +40,14 @@ public class HttpTask<T> extends BaseTaskObject{
 	protected HashMap<String, Object> result;
 	
 	public CookieStore cookieStore = null;
+	
+	public int getTaskType() {
+		return taskType;
+	}
+
+	public void setTaskType(int taskType) {
+		this.taskType = taskType;
+	}
 	
 	/**
 	 * HTTP POST Content
@@ -155,26 +163,30 @@ public class HttpTask<T> extends BaseTaskObject{
 	@Override
 	public void run() {
 		super.run();
-		if (IsCancel())
+		while(! IsCancel())
 		{
-			return;
+			InputStream in = getInputStream();
+			try {
+				if (in != null)
+				{
+					dealwithData(in);
+					sendInfoMessage();
+					in.close();
+					in = null;
+				}
+				else
+				{
+					result.put("message", message);
+				}
+				Thread.sleep(1000);
+			} catch (IOException e) {
+				e.printStackTrace();
+				XLog.e("IOException");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				XLog.e("InterruptedException");
+			}
 		}
-		InputStream in = getInputStream();
-		try {
-			if (in != null)
-			{
-				dealwithData(in);
-				sendInfoMessage();
-				in.close();
-				in = null;
-			}
-			else
-			{
-				result.put("message", message);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
 	}
 	
 	/**

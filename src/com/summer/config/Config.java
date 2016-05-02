@@ -328,6 +328,17 @@ public class Config {
      */
     public static final int video_list = 68;
     
+    /**
+     * 查询直播间的状态
+     */
+    public static final int query_video_status = 69;
+    
+    /**
+     * 娱票兑换
+     */
+    public static final int exchange_piao = 70;
+    
+    
     //微信支付
     public static final int PAY_WX =0x11;
     

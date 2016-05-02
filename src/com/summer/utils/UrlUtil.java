@@ -407,6 +407,18 @@ public class UrlUtil {
 			case Config.video_list:
 				url = Config.ADDRESS + "?_mod=video&_act=getVideoList";
 				break;
+			/**
+			 * ≤È—Ø÷±≤•º‰◊¥Ã¨
+			 */
+			case Config.query_video_status:
+				url = Config.ADDRESS + "?_mod=video&_act=queryVideoStatus";
+				break;
+			/**
+			 * ”È∆±∂“ªª
+			 */
+			case Config.exchange_piao:
+				url = Config.ADDRESS + "?_mod=user&_act=exchangePiao";
+				break;	
         }
         XLog.i(url);
         return url;
