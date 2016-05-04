@@ -338,7 +338,15 @@ public class Config {
      */
     public static final int exchange_piao = 70;
     
+    /**
+     * 进入聊天室获取头像相关信息
+     */
+    public static final int member_in = 71;
     
+    /**
+     * 查询可兑换的娱票数
+     */
+    public static final int query_piao_left = 72;
     //微信支付
     public static final int PAY_WX =0x11;
     

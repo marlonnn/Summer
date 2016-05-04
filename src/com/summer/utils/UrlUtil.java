@@ -418,7 +418,19 @@ public class UrlUtil {
 			 */
 			case Config.exchange_piao:
 				url = Config.ADDRESS + "?_mod=user&_act=exchangePiao";
-				break;	
+				break;
+			/**
+			 * 聊天室进入新成员
+			 */
+			case Config.member_in:
+				url = Config.ADDRESS + "?_mod=user&_act=queryBaseinfo";
+				break;
+			/**
+			 * 查询可兑换的娱票数
+			 */
+			case Config.query_piao_left:
+				url = Config.ADDRESS + "?_mod=video&_act=queryPiaoleft";
+				break;
         }
         XLog.i(url);
         return url;
