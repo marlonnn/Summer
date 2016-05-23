@@ -431,6 +431,12 @@ public class UrlUtil {
 			case Config.query_piao_left:
 				url = Config.ADDRESS + "?_mod=video&_act=queryPiaoleft";
 				break;
+		    /**
+		     * 明星列表 1关注 2热门 3最新
+		     */
+			case Config.stat_list:
+				url = Config.ADDRESS + "?_mod=topic&_act=appraise_show_list_new";
+				break;
         }
         XLog.i(url);
         return url;

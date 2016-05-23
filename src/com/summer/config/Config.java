@@ -32,6 +32,12 @@ public class Config {
 	//商户号
 	public static final String MCH_ID = "1321312601";
 	
+//	//应用ID
+//	public static final String APP_ID = "wxb90d68b883edb72f";
+//	
+//	//商户号
+//	public static final String MCH_ID = "1280217801";
+	
 	//商品或支付单简要描述
     public static final String BODY = "海绵娱娱币";
     
@@ -347,6 +353,11 @@ public class Config {
      * 查询可兑换的娱票数
      */
     public static final int query_piao_left = 72;
+    
+    /**
+     * 明星列表 1关注 2热门 3最新
+     */
+    public static final int stat_list = 73;
     //微信支付
     public static final int PAY_WX =0x11;
     

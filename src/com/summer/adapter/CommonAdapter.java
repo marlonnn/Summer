@@ -73,10 +73,15 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		viewHolder = new ViewHolder(mContext, parent, mItemLayoutId, position, mDatas);
 		viewHolder.setPosition(position);
+		setTag(viewHolder, getItem(position));
 		convert(viewHolder, getItem(position));
 		return viewHolder.getConvertView();
 	}
 
+	public void setTag(ViewHolder helper, final T item)
+	{
+	
+	}
 	public abstract void convert(ViewHolder helper, final T item);
 	public void setList(List<T> list){
 		if (list == null)
