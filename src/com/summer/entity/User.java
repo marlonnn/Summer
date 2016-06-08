@@ -22,6 +22,16 @@ public class User{
 	private String shareCode;
 	
 	private String token;
+	
+	private String pushUrl;
+	
+	public String getPushUrl() {
+		return pushUrl;
+	}
+
+	public void setPushUrl(String pushUrl) {
+		this.pushUrl = pushUrl;
+	}
 
 	public String getClientID() {
 		return clientID;

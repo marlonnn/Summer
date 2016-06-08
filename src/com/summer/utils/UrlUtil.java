@@ -437,6 +437,19 @@ public class UrlUtil {
 			case Config.stat_list:
 				url = Config.ADDRESS + "?_mod=topic&_act=appraise_show_list_new";
 				break;
+		    /**
+		     * 娱票排行榜
+		     */	
+			case Config.contribute:
+				url = Config.ADDRESS + "?_mod=starer&_act=fans_piao_list";
+				break;
+			/**
+			 * 第三方登陆
+			 */
+			case Config.third_regist:
+				url = Config.ADDRESS + "?_mod=user&_act=login_partner";
+				break;
+				
         }
         XLog.i(url);
         return url;

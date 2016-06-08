@@ -329,6 +329,22 @@ public class ValidateUtil {
 		}
 		return false;
 	}
+	
+	public static boolean isEmpty(EditText w, String displayStr) {
+		if (StringUtil.empty(w.getText().toString().trim())) {
+			String estring = displayStr + "²»ÄÜÎª¿Õ£¡";
+			int ecolor = R.color.red2; // whatever color you want
+			ForegroundColorSpan fgcspan = new ForegroundColorSpan(ecolor);
+			SpannableStringBuilder ssbuilder = new SpannableStringBuilder(
+					estring);
+			ssbuilder.setSpan(fgcspan, 0, estring.length(), 0);
+			w.setError(ssbuilder);
+			w.setFocusable(true);
+			w.requestFocus();
+			return true;
+		}
+		return false;
+	}
 
 	public static boolean isNum(TextView w, String displayStr) {
 		if (!StringUtil.num(w.getText().toString().trim())) {

@@ -74,7 +74,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 		viewHolder = new ViewHolder(mContext, parent, mItemLayoutId, position, mDatas);
 		viewHolder.setPosition(position);
 		setTag(viewHolder, getItem(position));
-		convert(viewHolder, getItem(position));
+		convert(viewHolder, getItem(position), position);
 		return viewHolder.getConvertView();
 	}
 
@@ -82,7 +82,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 	{
 	
 	}
-	public abstract void convert(ViewHolder helper, final T item);
+	public abstract void convert(ViewHolder helper, final T item, int position);
 	public void setList(List<T> list){
 		if (list == null)
 			return;

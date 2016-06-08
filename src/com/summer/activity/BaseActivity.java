@@ -75,7 +75,8 @@ public abstract class BaseActivity extends FragmentActivity implements InfoRecei
 			XLog.i(cache.getPath());
 			Config.setFileDir(getFilesDir().getPath());
 			Config.maincontext = this;
-			Config.LoadConfig();
+			Config.LoadUser();
+//			Config.LoadConfig();
 		}
 	}
 
