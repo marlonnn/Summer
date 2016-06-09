@@ -15,6 +15,7 @@ public abstract class MaskedImage extends ImageView {
 	private static final Xfermode MASK_XFERMODE;  
     private Bitmap mask;  
     private Paint paint;
+    private Paint p;
     
     static {  
         PorterDuff.Mode localMode = PorterDuff.Mode.DST_IN;  
@@ -62,7 +63,17 @@ public abstract class MaskedImage extends ImageView {
 	            }  
 	            Bitmap localBitmap2 = this.mask;  
 	            Paint localPaint3 = this.paint;  
-	            paramCanvas.drawBitmap(localBitmap2, 0.0F, 0.0F, localPaint3);  
+	            paramCanvas.drawBitmap(localBitmap2, 0.0F, 0.0F, localPaint3); 
+	            if (p == null)
+	            {
+	            	p = new Paint(); 
+	            }
+	            
+	            p.setColor(0xffffffff);
+	            p.setStrokeWidth(6);
+	            p.setStyle(Paint.Style.STROKE);
+	  
+	            paramCanvas.drawCircle(j/2,k/2,j/2-3,p);
 	            paramCanvas.restoreToCount(i);  
 	            return;  
 	        } catch (Exception localException) {  
