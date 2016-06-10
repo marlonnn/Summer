@@ -70,16 +70,13 @@ public abstract class MaskedImage extends ImageView {
 	            }
 	            
 	            p.setColor(0xffffffff);
-	            p.setStrokeWidth(6);
+	            p.setStrokeWidth(2);
 	            p.setStyle(Paint.Style.STROKE);
 	  
-	            paramCanvas.drawCircle(j/2,k/2,j/2-3,p);
+	            paramCanvas.drawCircle(j/2,k/2,j/2-1,p);
 	            paramCanvas.restoreToCount(i);  
 	            return;  
 	        } catch (Exception localException) {  
-	            StringBuilder localStringBuilder = new StringBuilder()  
-	                    .append("Attempting to draw with recycled bitmap. View ID = ");  
-	            System.out.println("localStringBuilder=="+localStringBuilder);  
 	        }  
 	    }  
 	
