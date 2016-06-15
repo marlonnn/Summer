@@ -449,6 +449,12 @@ public class UrlUtil {
 			case Config.third_regist:
 				url = Config.ADDRESS + "?_mod=user&_act=login_partner";
 				break;
+			/**
+			 *  È¡Ïû¹Ø×¢
+			 */
+			case Config.unfollow_attention:
+				url = Config.ADDRESS + "?_mod=user&_act=unfollow";
+				break;
 				
         }
         XLog.i(url);
