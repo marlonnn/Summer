@@ -374,6 +374,16 @@ public class Config {
     public static final int third_regist = 75;
     
     public static final int unfollow_attention = 76;
+    
+    /**
+     * 身份认证信息提交
+     */
+    public static final int idCheck = 77;
+    
+    /**
+     * 身份认证状态获取
+     */
+    public static final int idGet = 78;
     //微信支付
     public static final int PAY_WX =0x11;
     

@@ -455,6 +455,18 @@ public class UrlUtil {
 			case Config.unfollow_attention:
 				url = Config.ADDRESS + "?_mod=user&_act=unfollow";
 				break;
+			/**
+			 * 身份认证信息提交
+			 */
+			case Config.idCheck:
+				url = Config.ADDRESS + "?_mod=user&_act=idCheck";
+				break;
+			/**
+			 * 身份认证信息获取 
+			 */
+			case Config.idGet:
+				url = Config.ADDRESS + "?_mod=user&_act=idGet";
+				break;
 				
         }
         XLog.i(url);
