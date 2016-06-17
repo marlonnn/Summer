@@ -80,7 +80,7 @@ public abstract class BaseFragment extends Fragment implements InfoReceiver{
                     XLog.i("taskType: " + taskType);
                     if (code == 0)
                     {
-                        RequestSuccessful(jsonString, taskType);
+                        RequestSuccessful(code, jsonString, taskType);
                     }
                     else
                     {
@@ -115,10 +115,11 @@ public abstract class BaseFragment extends Fragment implements InfoReceiver{
 	
 	/**
 	 * Get json string and request success callback
+	 * @parm status status
 	 * @param jsonString
 	 * @param taskType
 	 */
-	public abstract void RequestSuccessful(String jsonString, int taskType);
+	public abstract void RequestSuccessful(int status, String jsonString, int taskType);
 	
 	/**
 	 * Get error and show failed toast
