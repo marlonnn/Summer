@@ -384,6 +384,18 @@ public class Config {
      * 身份认证状态获取
      */
     public static final int idGet = 78;
+    
+    /**
+     * 获取权益卡列表
+     */
+    public static final int getProfit = 79;
+    
+    /**
+     * 新增发布权益卡
+     */
+    public static final int newProfit = 80;
+    
+    
     //微信支付
     public static final int PAY_WX =0x11;
     
@@ -464,10 +476,10 @@ public class Config {
 		return isSavePsw;
 	}
 
-	public static void setSavePsw(boolean isSavePsw) {
-		Config.isSavePsw = isSavePsw;
-		Config.saveConfig();
-	}
+//	public static void setSavePsw(boolean isSavePsw) {
+//		Config.isSavePsw = isSavePsw;
+//		Config.saveConfig();
+//	}
 
 	public static String getPhoneNum() {
 		return phoneNum;
@@ -481,207 +493,207 @@ public class Config {
 		password = passwordString;
 	}
 
-	public static void clearPassword() {
-		password = "";
-		saveConfig();
-	}
-
-	public static void saveUser(String phone, String pwd) {
-		if (phone == null || pwd == null) {
-			return;
-		}
-		phoneNum = phone;
-		password = pwd;
-		Config.saveConfig();
-	}
-	
-    public static void LoadUser() 
-    {
-		hasloadConfig = true;
-		FileInputStream stream = null;
-		String filename = Config.fileDir + Config.cfgname;
-		
-		try {
-			File file = new File(filename);
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			stream = new FileInputStream(filename);
-			Properties properties = new Properties();
-			properties.load(stream);
-			Config.password = properties.getProperty(KPassword, "");
-			Config.phoneNum = properties.getProperty(KPhoneNum, "");
-			Config.User = new User();
-			
-			Config.User.setClientID(properties.getProperty(KClientID, ""));
-			Config.User.setUserName(properties.getProperty(KUserName, ""));
-			Config.User.setNickName(properties.getProperty(KNickName, ""));
-			Config.User.setPermission(properties.getProperty(KPermission, ""));
-			Config.User.setCheckType(properties.getProperty(KCheckType, ""));
-			Config.User.setImage(properties.getProperty(KImage, ""));
-			Config.User.setShareCode(properties.getProperty(KShareCode, ""));
-			Config.User.setToken(properties.getProperty(KToken, ""));
-			Config.User.setPushUrl(properties.getProperty(KPushUrl, ""));
-			
-			String w = properties.getProperty("isSavePsw", "false");
-			Config.isSavePsw = Boolean.valueOf(w).booleanValue();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			XLog.e(e.getMessage(), e);
-		} catch (IOException e) {
-			e.printStackTrace();
-			XLog.e(e.getMessage(), e);
-		}finally {
-			if (stream != null) {
-				try {
-					stream.close();
-					stream = null;
-				} catch (IOException e) {
-					XLog.e(e.getMessage(), e);
-				}
-			}
-		}
-    }
-	
-	public static void saveUser() {
-		Properties properties = new Properties();
-		properties.setProperty(Config.KClientID,
-				String.valueOf(Config.User.getClientID()));
-		properties.setProperty(Config.KUserName,
-				String.valueOf(Config.User.getUserName()));
-		
-		properties.setProperty(Config.KNickName,
-				String.valueOf(Config.User.getNickName()));
-		properties.setProperty(Config.KPermission,
-				String.valueOf(Config.User.getPermission()));
-		
-		properties.setProperty(Config.KCheckType,
-				String.valueOf(Config.User.getCheckType()));
-		properties.setProperty(Config.KImage,
-				String.valueOf(Config.User.getImage()));
-		
-		properties.setProperty(Config.KShareCode,
-				String.valueOf(Config.User.getShareCode()));
-		properties.setProperty(Config.KToken,
-				String.valueOf(Config.User.getToken()));
-		properties.setProperty(Config.KPushUrl,
-				String.valueOf(Config.User.getPushUrl()));
-		properties.setProperty("cookieStore",
-				String.valueOf(Config.cookieStore));
-		
-		properties.setProperty(Config.KPhoneNum,
-				String.valueOf(Config.phoneNum));
-		properties.setProperty(Config.KPassword,
-				String.valueOf(Config.password));
-		properties.setProperty("isSavePsw", String.valueOf(Config.isSavePsw));
-		FileOutputStream stream = null;
-		String filename = Config.fileDir + Config.cfgname;
-		try {
-
-			File f = new File(filename);
-			if (!f.exists()) {
-				File dir = new File(Config.fileDir);
-				dir.mkdirs();
-				f.createNewFile();
-			}
-			stream = new FileOutputStream(f);
-			properties.store(stream, "");
-		} catch (FileNotFoundException e) {
-			XLog.e("saveConfig" + e.toString(), e);
-		} catch (Exception e) {
-			XLog.e("saveConfig" + e.toString(), e);
-		} finally {
-			if (stream != null) {
-				try {
-					stream.close();
-					stream = null;
-				} catch (IOException e) {
-					XLog.e("saveConfig" + e.toString(), e);
-				}
-			}
-		}
-	}
-
-	public static String getPassword() {
-		return password;
-	}
+//	public static void clearPassword() {
+//		password = "";
+//		saveConfig();
+//	}
+//
+//	public static void saveUser(String phone, String pwd) {
+//		if (phone == null || pwd == null) {
+//			return;
+//		}
+//		phoneNum = phone;
+//		password = pwd;
+//		Config.saveConfig();
+//	}
+//	
+//    public static void LoadUser() 
+//    {
+//		hasloadConfig = true;
+//		FileInputStream stream = null;
+//		String filename = Config.fileDir + Config.cfgname;
+//		
+//		try {
+//			File file = new File(filename);
+//			if (!file.exists()) {
+//				file.createNewFile();
+//			}
+//
+//			stream = new FileInputStream(filename);
+//			Properties properties = new Properties();
+//			properties.load(stream);
+//			Config.password = properties.getProperty(KPassword, "");
+//			Config.phoneNum = properties.getProperty(KPhoneNum, "");
+//			Config.User = new User();
+//			
+//			Config.User.setClientID(properties.getProperty(KClientID, ""));
+//			Config.User.setUserName(properties.getProperty(KUserName, ""));
+//			Config.User.setNickName(properties.getProperty(KNickName, ""));
+//			Config.User.setPermission(properties.getProperty(KPermission, ""));
+//			Config.User.setCheckType(properties.getProperty(KCheckType, ""));
+//			Config.User.setImage(properties.getProperty(KImage, ""));
+//			Config.User.setShareCode(properties.getProperty(KShareCode, ""));
+//			Config.User.setToken(properties.getProperty(KToken, ""));
+//			Config.User.setPushUrl(properties.getProperty(KPushUrl, ""));
+//			
+//			String w = properties.getProperty("isSavePsw", "false");
+//			Config.isSavePsw = Boolean.valueOf(w).booleanValue();
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//			XLog.e(e.getMessage(), e);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//			XLog.e(e.getMessage(), e);
+//		}finally {
+//			if (stream != null) {
+//				try {
+//					stream.close();
+//					stream = null;
+//				} catch (IOException e) {
+//					XLog.e(e.getMessage(), e);
+//				}
+//			}
+//		}
+//    }
+//	
+//	public static void saveUser() {
+//		Properties properties = new Properties();
+//		properties.setProperty(Config.KClientID,
+//				String.valueOf(Config.User.getClientID()));
+//		properties.setProperty(Config.KUserName,
+//				String.valueOf(Config.User.getUserName()));
+//		
+//		properties.setProperty(Config.KNickName,
+//				String.valueOf(Config.User.getNickName()));
+//		properties.setProperty(Config.KPermission,
+//				String.valueOf(Config.User.getPermission()));
+//		
+//		properties.setProperty(Config.KCheckType,
+//				String.valueOf(Config.User.getCheckType()));
+//		properties.setProperty(Config.KImage,
+//				String.valueOf(Config.User.getImage()));
+//		
+//		properties.setProperty(Config.KShareCode,
+//				String.valueOf(Config.User.getShareCode()));
+//		properties.setProperty(Config.KToken,
+//				String.valueOf(Config.User.getToken()));
+//		properties.setProperty(Config.KPushUrl,
+//				String.valueOf(Config.User.getPushUrl()));
+//		properties.setProperty("cookieStore",
+//				String.valueOf(Config.cookieStore));
+//		
+//		properties.setProperty(Config.KPhoneNum,
+//				String.valueOf(Config.phoneNum));
+//		properties.setProperty(Config.KPassword,
+//				String.valueOf(Config.password));
+//		properties.setProperty("isSavePsw", String.valueOf(Config.isSavePsw));
+//		FileOutputStream stream = null;
+//		String filename = Config.fileDir + Config.cfgname;
+//		try {
+//
+//			File f = new File(filename);
+//			if (!f.exists()) {
+//				File dir = new File(Config.fileDir);
+//				dir.mkdirs();
+//				f.createNewFile();
+//			}
+//			stream = new FileOutputStream(f);
+//			properties.store(stream, "");
+//		} catch (FileNotFoundException e) {
+//			XLog.e("saveConfig" + e.toString(), e);
+//		} catch (Exception e) {
+//			XLog.e("saveConfig" + e.toString(), e);
+//		} finally {
+//			if (stream != null) {
+//				try {
+//					stream.close();
+//					stream = null;
+//				} catch (IOException e) {
+//					XLog.e("saveConfig" + e.toString(), e);
+//				}
+//			}
+//		}
+//	}
+//
+//	public static String getPassword() {
+//		return password;
+//	}
     
-	/**
-	 * Load config from local file
-	 */
-    public static void LoadConfig() 
-    {
-		hasloadConfig = true;
-		FileInputStream stream = null;
-		String filename = Config.fileDir + Config.cfgname;
-		
-		try {
-			File file = new File(filename);
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			stream = new FileInputStream(filename);
-			Properties properties = new Properties();
-			properties.load(stream);
-			Config.password = properties.getProperty(KPassword, "");
-			Config.phoneNum = properties.getProperty(KPhoneNum, "");
-			String w = properties.getProperty("isSavePsw", "false");
-			Config.isSavePsw = Boolean.valueOf(w).booleanValue();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			XLog.e(e.getMessage(), e);
-		} catch (IOException e) {
-			e.printStackTrace();
-			XLog.e(e.getMessage(), e);
-		}finally {
-			if (stream != null) {
-				try {
-					stream.close();
-					stream = null;
-				} catch (IOException e) {
-					XLog.e(e.getMessage(), e);
-				}
-			}
-		}
-    }
+//	/**
+//	 * Load config from local file
+//	 */
+//    public static void LoadConfig() 
+//    {
+//		hasloadConfig = true;
+//		FileInputStream stream = null;
+//		String filename = Config.fileDir + Config.cfgname;
+//		
+//		try {
+//			File file = new File(filename);
+//			if (!file.exists()) {
+//				file.createNewFile();
+//			}
+//
+//			stream = new FileInputStream(filename);
+//			Properties properties = new Properties();
+//			properties.load(stream);
+//			Config.password = properties.getProperty(KPassword, "");
+//			Config.phoneNum = properties.getProperty(KPhoneNum, "");
+//			String w = properties.getProperty("isSavePsw", "false");
+//			Config.isSavePsw = Boolean.valueOf(w).booleanValue();
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//			XLog.e(e.getMessage(), e);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//			XLog.e(e.getMessage(), e);
+//		}finally {
+//			if (stream != null) {
+//				try {
+//					stream.close();
+//					stream = null;
+//				} catch (IOException e) {
+//					XLog.e(e.getMessage(), e);
+//				}
+//			}
+//		}
+//    }
     
-	public static void saveConfig() {
-		Properties properties = new Properties();
-		properties.setProperty(Config.KPhoneNum,
-				String.valueOf(Config.phoneNum));
-		properties.setProperty(Config.KPassword,
-				String.valueOf(Config.password));
-		properties.setProperty("cookieStore",
-				String.valueOf(Config.cookieStore));
-		properties.setProperty("isSavePsw", String.valueOf(Config.isSavePsw));
-		FileOutputStream stream = null;
-		String filename = Config.fileDir + Config.cfgname;
-		try {
-
-			File f = new File(filename);
-			if (!f.exists()) {
-				File dir = new File(Config.fileDir);
-				dir.mkdirs();
-				f.createNewFile();
-			}
-			stream = new FileOutputStream(f);
-			properties.store(stream, "");
-		} catch (FileNotFoundException e) {
-			XLog.e("saveConfig" + e.toString(), e);
-		} catch (Exception e) {
-			XLog.e("saveConfig" + e.toString(), e);
-		} finally {
-			if (stream != null) {
-				try {
-					stream.close();
-					stream = null;
-				} catch (IOException e) {
-					XLog.e("saveConfig" + e.toString(), e);
-				}
-			}
-		}
-	}
+//	public static void saveConfig() {
+//		Properties properties = new Properties();
+//		properties.setProperty(Config.KPhoneNum,
+//				String.valueOf(Config.phoneNum));
+//		properties.setProperty(Config.KPassword,
+//				String.valueOf(Config.password));
+//		properties.setProperty("cookieStore",
+//				String.valueOf(Config.cookieStore));
+//		properties.setProperty("isSavePsw", String.valueOf(Config.isSavePsw));
+//		FileOutputStream stream = null;
+//		String filename = Config.fileDir + Config.cfgname;
+//		try {
+//
+//			File f = new File(filename);
+//			if (!f.exists()) {
+//				File dir = new File(Config.fileDir);
+//				dir.mkdirs();
+//				f.createNewFile();
+//			}
+//			stream = new FileOutputStream(f);
+//			properties.store(stream, "");
+//		} catch (FileNotFoundException e) {
+//			XLog.e("saveConfig" + e.toString(), e);
+//		} catch (Exception e) {
+//			XLog.e("saveConfig" + e.toString(), e);
+//		} finally {
+//			if (stream != null) {
+//				try {
+//					stream.close();
+//					stream = null;
+//				} catch (IOException e) {
+//					XLog.e("saveConfig" + e.toString(), e);
+//				}
+//			}
+//		}
+//	}
 
 }

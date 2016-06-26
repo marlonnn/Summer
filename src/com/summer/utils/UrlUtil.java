@@ -467,7 +467,18 @@ public class UrlUtil {
 			case Config.idGet:
 				url = Config.ADDRESS + "?_mod=user&_act=idGet";
 				break;
-				
+			/**
+			 * 获取权益卡
+			 */
+			case Config.getProfit:
+				url = Config.ADDRESS + "?_mod=profit&_act=getProfit";
+				break;
+			/**
+			 * 新增发布权益卡
+			 */
+			case Config.newProfit:
+				url = Config.ADDRESS + "?_mod=profit&_act=newProfit";
+				break;
         }
         XLog.i(url);
         return url;
