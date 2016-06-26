@@ -395,6 +395,10 @@ public class Config {
      */
     public static final int newProfit = 80;
     
+    /**
+     * 下单接口
+     */
+    public static final int profitOrder = 81;
     
     //微信支付
     public static final int PAY_WX =0x11;

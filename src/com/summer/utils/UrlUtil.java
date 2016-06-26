@@ -479,6 +479,12 @@ public class UrlUtil {
 			case Config.newProfit:
 				url = Config.ADDRESS + "?_mod=profit&_act=newProfit";
 				break;
+			/**
+			 * 下单接口
+			 */
+			case Config.profitOrder:
+				url = Config.ADDRESS + "?_mod=profit&_act=profitOrder";
+				break;
         }
         XLog.i(url);
         return url;
