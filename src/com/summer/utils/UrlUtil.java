@@ -485,6 +485,24 @@ public class UrlUtil {
 			case Config.profitOrder:
 				url = Config.ADDRESS + "?_mod=profit&_act=profitOrder";
 				break;
+			/**
+			 * 订单状态
+			 */
+			case Config.orderStatus:
+				url = Config.ADDRESS + "?_mod=profit&_act=orderStatus";
+			    break;
+			/**
+			 * 订单列表
+			 */
+			case Config.orderList:
+				url = Config.ADDRESS + "?_mod=profit&_act=orderList";
+			    break;
+			/**
+			 * 申诉接口
+			 */
+			case Config.appeal:
+				url = Config.ADDRESS + "?_mod=profit&_act=appeal";
+			    break;
         }
         XLog.i(url);
         return url;

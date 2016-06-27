@@ -1,18 +1,11 @@
 package com.summer.config;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Properties;
-
 import org.apache.http.client.CookieStore;
-import com.summer.entity.User;
-import com.summer.logger.XLog;
 
 import android.content.Context;
 import android.graphics.Typeface;
+
+import com.summer.entity.User;
 
 public class Config {
 
@@ -399,6 +392,21 @@ public class Config {
      * 下单接口
      */
     public static final int profitOrder = 81;
+    
+    /**
+     * 订单状态
+     */
+    public static final int orderStatus = 82;
+    
+    /**
+     * 订单列表
+     */
+    public static final int orderList = 83;
+    
+    /**
+     * 申诉接口
+     */
+    public static final int appeal = 84;
     
     //微信支付
     public static final int PAY_WX =0x11;
