@@ -408,6 +408,11 @@ public class Config {
      */
     public static final int appeal = 84;
     
+    /**
+     * 粉丝列表
+     */
+    public static final int follow = 85;
+    
     //微信支付
     public static final int PAY_WX =0x11;
     

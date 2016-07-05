@@ -503,6 +503,9 @@ public class UrlUtil {
 			case Config.appeal:
 				url = Config.ADDRESS + "?_mod=profit&_act=appeal";
 			    break;
+			case Config.follow:
+				url = Config.ADDRESS + "?_mod=user&_act=my_followed_list";
+				break;
         }
         XLog.i(url);
         return url;
