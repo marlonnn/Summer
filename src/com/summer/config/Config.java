@@ -413,6 +413,17 @@ public class Config {
      */
     public static final int follow = 85;
     
+    /**
+     * 获取所有剧组活动
+     */
+    public static final int getList = 86;
+    
+    /**
+     * 获取消息详情 个推
+     */
+    public static final int getMessage = 87;
+    
+    
     //微信支付
     public static final int PAY_WX =0x11;
     

@@ -503,8 +503,23 @@ public class UrlUtil {
 			case Config.appeal:
 				url = Config.ADDRESS + "?_mod=profit&_act=appeal";
 			    break;
+			/**
+			 * 粉丝列表 
+			 */
 			case Config.follow:
 				url = Config.ADDRESS + "?_mod=user&_act=my_followed_list";
+				break;
+			/**
+			 * 获取剧组活动
+			 */
+			case Config.getList:
+				url = Config.ADDRESS + "?_mod=activity&_act=getList";
+				break;
+			/**
+			 * 获取消息详情
+			 */
+			case Config.getMessage:
+				url = Config.ADDRESS + "?_mod=message&_act=getMessage";
 				break;
         }
         XLog.i(url);
